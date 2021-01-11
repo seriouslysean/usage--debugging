@@ -43,7 +43,7 @@ three = () => {
 };
 
 function load(event) {
-    console.info('App loaded', event);
+    console.log('App loaded', event);
     debugger;
 
     // Will fire in this order:

@@ -1,3 +1,10 @@
+function logHeading(msg) {
+    console.log(
+        `\n\n%c${msg}`,
+        'font-weight: bold; font-size: 18px; color: #009900; text-decoration: underline;'
+    );
+}
+
 function logs() {
     // console.log()
     console.log('This is console.log()');
@@ -19,7 +26,7 @@ function logs() {
     console.log('Or by concatenation "' + string + '"');
 
     // Styling
-    console.log('%c You can also style the output', 'font-weight: bold; font-size: 18px; color: red');
+    console.log('%cYou can also style the output', 'font-style: italic; font-size: 16px; color: red');
 }
 
 function groups() {
@@ -63,7 +70,7 @@ function tables() {
 }
 
 function load(event) {
-    console.info('App loaded', event);
+    console.log('App loaded', event);
 
     // Examples of output using the console
     // Logging levels can be output with a specific severity
@@ -77,15 +84,15 @@ function load(event) {
     // https://developer.mozilla.org/en-US/docs/Web/API/Console/info
     // https://developer.mozilla.org/en-US/docs/Web/API/Console/debug
     // https://developers.google.com/web/tools/chrome-devtools/console/log
-    console.log('Logging examples:');
+    logHeading('Message Examples');
     logs();
 
     // https://developer.mozilla.org/en-US/docs/Web/API/Console/group
-    console.log('Log group examples:');
+    logHeading('Group Examples');
     groups();
 
     // https://developer.mozilla.org/en-US/docs/Web/API/Console/table
-    console.log('Log table examples:');
+    logHeading('Table Examples');
     tables();
 }
 
