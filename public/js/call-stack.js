@@ -1,7 +1,16 @@
+const urlParams = new URLSearchParams(window.location.search);
+const shouldDebug = urlParams.get('debug') !== null;
+
 let zero;
 let one;
 let two;
 let three;
+
+const debugIt = () => {
+    if (shouldDebug) {
+        debugger;
+    }
+};
 
 zero = () => {
     console.log('Running zero()');
@@ -10,7 +19,7 @@ zero = () => {
 
     // This debugger fires after a and b are both declared
     // so they'll be visible in devtools while debugging
-    debugger;
+    debugIt();
 
     console.log('Throwing error');
     throw new Error('Error in zero()');
@@ -18,7 +27,7 @@ zero = () => {
 
 one = () => {
     console.log('Running one()');
-    debugger;
+    debugIt();
 
     // Using call() with a blank object mocks the this context
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call
@@ -28,7 +37,7 @@ one = () => {
 
 two = () => {
     console.log('Running two()');
-    debugger;
+    debugIt();
 
     console.log('Calling one()');
     one();
@@ -36,7 +45,7 @@ two = () => {
 
 three = () => {
     console.log('Running three()');
-    debugger;
+    debugIt();
 
     console.log('Calling two()');
     two();
@@ -44,7 +53,7 @@ three = () => {
 
 function load(event) {
     console.log('App loaded', event);
-    debugger;
+    debugIt();
 
     // Will fire in this order:
     //   three() -> two() -> one() -> zero()
