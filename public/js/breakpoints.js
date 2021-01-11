@@ -8,6 +8,10 @@ const CONTEXT_BOUND = {
     name: 'CONTEXT_BOUND',
 };
 
+function addBreakpoint() {
+    // BREAK, Add breakpoint here in devtools
+}
+
 function breakpoints() {
     // Define base values to modify
     const a = 'foo';
@@ -25,7 +29,7 @@ function breakpoints() {
     console.log('Set a breakpoint here to see the variables listed above (a, b, c, d)');
     console.log('"this" should be the CONTEXT_DEFAULT object with the variables as keys');
     console.log('a=foo, b=bar, c=null and d=undefined');
-    // BREAK, Add breakpoint here in devtools
+    addBreakpoint();
 
     function override() {
         if (this === window) {
@@ -33,7 +37,7 @@ function breakpoints() {
             console.log(this);
             console.log('Set a breakpoint here to see the "this" context');
             console.log('"this" should be the window object');
-            // BREAK, Add breakpoint here in devtools
+            addBreakpoint();
             return;
         }
 
@@ -46,7 +50,7 @@ function breakpoints() {
         console.log(this);
         console.log('Set a breakpoint here to see the "this" context');
         console.log('"this" should be the CONTEXT_OVERRIDE object');
-        // BREAK, Add breakpoint here in devtools
+        addBreakpoint();
     }
 
     // Without call, the "this" context will be the window object because this is a global function

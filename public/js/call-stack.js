@@ -6,12 +6,6 @@ let one;
 let two;
 let three;
 
-const debugIt = () => {
-    if (shouldDebug) {
-        debugger;
-    }
-};
-
 zero = () => {
     console.log('Running zero()');
     const a = 'foo';
@@ -19,7 +13,7 @@ zero = () => {
 
     // This debugger fires after a and b are both declared
     // so they'll be visible in devtools while debugging
-    debugIt();
+    if (shouldDebug) { debugger; }
 
     console.log('Throwing error');
     throw new Error('Error in zero()');
@@ -27,7 +21,7 @@ zero = () => {
 
 one = () => {
     console.log('Running one()');
-    debugIt();
+    if (shouldDebug) { debugger; }
 
     // Using call() with a blank object mocks the this context
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call
@@ -37,7 +31,7 @@ one = () => {
 
 two = () => {
     console.log('Running two()');
-    debugIt();
+    if (shouldDebug) { debugger; }
 
     console.log('Calling one()');
     one();
@@ -45,7 +39,7 @@ two = () => {
 
 three = () => {
     console.log('Running three()');
-    debugIt();
+    if (shouldDebug) { debugger; }
 
     console.log('Calling two()');
     two();
@@ -53,7 +47,7 @@ three = () => {
 
 function load(event) {
     console.log('App loaded', event);
-    debugIt();
+    if (shouldDebug) { debugger; }
 
     // Will fire in this order:
     //   three() -> two() -> one() -> zero()
