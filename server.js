@@ -12,7 +12,17 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(staticPath + '/index.html'));
 });
 
+// Breakpoint examples
+app.get('/breakpoints', (req, res) => {
+    res.sendFile(path.join(staticPath + '/breakpoints.html'));
+});
+
+// Call stack examples
+app.get('/call-stack', (req, res) => {
+    res.sendFile(path.join(staticPath + '/call-stack.html'));
+});
+
 // Start server
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`App listening on port ${port}`);
 });
