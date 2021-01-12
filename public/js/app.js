@@ -21,9 +21,19 @@ function logs() {
     console.log('You can log various types', true, {}, [], 12345, () => {})
 
     // Interpolation
-    const string = 'foo-bar-baz'
-    console.log(`You can interpolate values with string literals "${string}"`);
-    console.log('Or by concatenation "' + string + '"');
+    // Methods that take a string also support substitution
+    //     - %s Formats the value as a string
+    //     - %i Formats the value as an integer
+    //     - %d Formats the value as an integer
+    //     - %f Formats the value as a floating point value
+    //     - %o Formats the value as an expandable DOM element. As seen in the Elements panel
+    //     - %O Formats the value as an expandable JavaScript object
+    //     - %c Applies CSS style rules to the output string as specified by the second parameter
+    // https://developer.mozilla.org/en-US/docs/Web/API/console#Using_string_substitutions
+    const strings = ['foo', 'bar', 'baz'];
+    console.log(`You can interpolate values with string literals "${strings[0]}"`);
+    console.log('Or by concatenation "' + strings[1] + '"');
+    console.log('Even by type, "%s" (string), "%d" (integer)', strings[2], 35);
 
     // Styling
     console.log('%cYou can also style the output', 'font-style: italic; font-size: 16px; color: red');
