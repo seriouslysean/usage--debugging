@@ -39,6 +39,13 @@ function logs() {
     console.log('%cYou can also style the output', 'font-style: italic; font-size: 16px; color: red');
 }
 
+function dirs() {
+    const coffee = { roast: 'Light',   flavors: 'Citrus, Honey, Berry' };
+    console.log('console.log() prints the toString representation of the object', coffee);
+    console.log('while dir() recognizes the object and prints the properties only');
+    console.dir(coffee);
+}
+
 function groups() {
     console.log('No grouping');
 
@@ -96,6 +103,10 @@ function load(event) {
     // https://developers.google.com/web/tools/chrome-devtools/console/log
     logHeading('Message Examples');
     logs();
+
+    // https://developer.mozilla.org/en-US/docs/Web/API/Console/dir
+    logHeading('Dir Examples');
+    dirs();
 
     // https://developer.mozilla.org/en-US/docs/Web/API/Console/group
     logHeading('Group Examples');
