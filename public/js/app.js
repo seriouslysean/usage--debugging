@@ -54,7 +54,7 @@ function groups() {
     console.log('Up to level 2');
 
     // Up another level to 3
-    console.group();
+    console.groupCollapsed();
     console.log('Up to level 3');
     console.warn('A message in level 3');
     console.error('Another message in level 3');
