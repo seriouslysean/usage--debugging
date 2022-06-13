@@ -18,7 +18,9 @@ function logs() {
     console.error('This is console.error(), notice it includes the stack trace');
 
     // Multiple values
-    console.log('You can log various types', true, {}, [], 12345, () => {})
+    console.log('You can log various types', true, { one: 1 }, ['two'], 12345, () => {
+        console.log('three');
+    });
 
     // Interpolation
     // Methods that take a string also support substitution
@@ -33,16 +35,27 @@ function logs() {
     const strings = ['foo', 'bar', 'baz'];
     console.log(`You can interpolate values with string literals "${strings[0]}"`);
     console.log('Or by concatenation "' + strings[1] + '"');
-    console.log('Even by type, "%s" (string), "%d" (integer)', strings[2], 35);
+    console.log(
+        'Even by type, "%s" (string), "%d" (integer), "%f" (float)',
+        strings[2], // string
+        35, // integer
+        33.333, // float
+    );
 
     // Styling
     console.log('%cYou can also style the output', 'font-style: italic; font-size: 16px; color: red');
 }
 
 function dirs() {
-    const coffee = { roast: 'Light',   flavors: 'Citrus, Honey, Berry' };
-    console.log('console.log() prints the toString representation of the object', coffee);
+    const coffee = {
+        roast: 'Light',
+        flavors: 'Citrus, Honey, Berry',
+        count: 3,
+    };
+    console.log('console.log() prints the toString representation of the object');
+    console.log(coffee);
     console.log('while dir() recognizes the object and prints the properties only');
+    // console.dir() displays an interactive list of the properties of the specified JavaScript object.
     console.dir(coffee);
 }
 
@@ -63,6 +76,16 @@ function groups() {
     console.groupEnd();
     console.log('Back to level 2');
 
+    // You can name groups, too
+    console.groupCollapsed('Secrets 👀');
+    console.log('This');
+    console.log('is');
+    console.log('a');
+    console.log('named');
+    console.log('group');
+    console.log(':)');
+    console.groupEnd();
+
     // Back to ground level
     console.groupEnd();
     console.log('No grouping');
@@ -70,20 +93,20 @@ function groups() {
 
 function tables() {
     console.log('Table of objects');
-    const objects = [
+    const coffees = [
         { roast: 'Light',   flavors: 'Citrus, Honey, Berry' },
         { roast: 'Medium',  flavors: 'Caramel' },
         { roast: 'Dark',    flavors: 'Chocolate, Smoke' },
     ];
-    console.table(objects);
+    console.table(coffees);
 
     console.log('Table of arrays');
-    const arrays = [
+    const people = [
         ['Peter',   'Parker'],
         ['Miles',   'Morales'],
         ['Gwen',    'Stacy'],
     ];
-    console.table(arrays);
+    console.table(people);
 }
 
 function load(event) {

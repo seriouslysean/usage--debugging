@@ -17,7 +17,7 @@ function breakpoints() {
     const a = 'foo';
     const b = 'bar';
     let c = null;
-    let d;
+    let d; // undefined
 
     // Set the default values to the current this context
     this.a = a; // foo
@@ -64,13 +64,18 @@ function breakpoints() {
     // We could also use bind to make a new function reference with the this proper this context
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind
     const boundOverride = override.bind(CONTEXT_BOUND);
-    boundOverride();
+    boundOverride(); // Permanently bound to CONTEXT_BOUND
 }
 
 function load(event) {
     console.log('App loaded', event);
 
+    console.log(this); // Window object
+
     breakpoints.call(CONTEXT_DEFAULT);
 }
 
 window.addEventListener('load', load);
+
+// TODO break this context out in to it's own category/page
+// TODO show function being caslled before being declared
